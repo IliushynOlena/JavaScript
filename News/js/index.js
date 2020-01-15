@@ -1,5 +1,12 @@
 window.addEventListener("load", Init);
 
+// let sports = document.querySelector(".sports");
+// sports.addEventListener("click",GetSportNews);
+
+// GetSportNews(){
+//   alert( 'Спасибо!' );
+// }
+
 function Init() {
   let url = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
 

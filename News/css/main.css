@@ -1,5 +1,5 @@
 body {
-    background: #272727;
+    background: #ece6d3;
 }
 
 .header-top {
@@ -36,7 +36,7 @@ body {
 }
 
 .main-nav li {
-    border: 1px solid #FFE400;
+    border: 1px solid rgb(33, 26, 138);
     border-radius: 5px;
     padding-left: 10px;
     padding-right: 10px;
@@ -55,7 +55,7 @@ body {
 .main-text {
     display: flex;
     justify-content: flex-start;
-    color: #FFE400;
+    color: rgb(38, 5, 100);
     align-items: center;
 }
 
