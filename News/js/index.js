@@ -1,20 +1,19 @@
 window.addEventListener("load", Init);
-
+let sel_leng;
 function Init() {
   let url = "https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5";
 
   console.log("init");
   let btnCategoryArr = document.querySelectorAll(".btnCategory");
-  let selectLenguageArr = document.querySelectorAll(".selectlenguage");
-  
+ 
   btnCategoryArr.forEach(item => {
     item.addEventListener("click", SwitchCatrgory);
   });
 
-  selectLenguageArr.forEach(leng => {
-    leng.addEventListener("click", SwitchLeng);
-    console.log(leng.textContent);
-  });
+  document.getElementById("language-picker-select").onclick = function() {    
+    sel_leng = this.value;
+    //console.log(sel_leng) ;
+ };
 
   const categoryArr = [
     "sport",
@@ -23,27 +22,22 @@ function Init() {
     "science",
     "technology"
   ];
-
-
-
-  NewsRequest(categoryArr[0], GetNews);
-}
-function SwitchLeng() {
-  let sel_Leng = this.GetCurrency;
-  sel_Leng = sel_Leng.textContent.toLowerCase();
-
-  //NewsRequest(category, GetNews);
+ 
+ 
+  NewsRequest(categoryArr[0], sel_leng,  GetNews);
 }
 
 function SwitchCatrgory() {
   let category = this;
   category = category.textContent.toLowerCase();
 
-  NewsRequest(category, GetNews);
+  NewsRequest(category, sel_leng, GetNews);
 }
 
-function NewsRequest(category, callback) {
-  let url = `https://newsapi.org/v2/top-headlines?country=ua&category=${category}&apiKey=18f1c87e444741aca30db0a569bba999`;
+function NewsRequest(category, sel_leng, callback) {
+  //let url = `https://newsapi.org/v2/top-headlines?country=ua&category=${category}&apiKey=18f1c87e444741aca30db0a569bba999`;
+  let url = `https://newsapi.org/v2/top-headlines?country=${sel_leng}&category=${category}&apiKey=43eb6ece9aca45b3bd9af37f1c317058`;
+  
   let xhr = new XMLHttpRequest();
   xhr.open("GET", url, true);
   xhr.send();
@@ -83,7 +77,6 @@ function Request(url, callback) {
 }
 
 function GetCurrency(data) {
-
   let currency = document.querySelector("#currency");
 
   for (let i = 0; i < data.length; i++) {
