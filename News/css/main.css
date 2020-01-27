@@ -1,5 +1,5 @@
 body {
-    background: #35332f;
+    background: #6d685f;
 }
 
 .header-top {
@@ -8,9 +8,10 @@ body {
 }
 
 .search {
-    display: flex;
+    display:flex;
     justify-content: flex-end;
     padding: 0;
+    
 }
 
 .navigation {
@@ -283,7 +284,7 @@ body {
     width: 100%;
     max-width: 100%;
     box-shadow: none;
-    background-color: rgb(46, 46, 46);
+    background-color: rgb(95, 94, 94);
     position: fixed;
     height: 60px !important;
     overflow: hidden;
@@ -292,6 +293,4 @@ body {
 .language-picker__form{
     color: white;
 }
-
-
 
